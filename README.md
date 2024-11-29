@@ -1,11 +1,18 @@
-# Fresh project
+# Introduction
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: https://fresh.deno.dev/docs/getting-started
+A full-stack TypeScript tax application using modern tools.
 
-### Usage
+# Usage
 
-Make sure to install Deno: https://deno.land/manual/getting_started/installation
+[Install Devbox](https://www.jetify.com/docs/devbox/installing_devbox/). On
+Windows, install WSL2 as a prerequisite as mentioned in the
+[installation instructions](https://www.jetify.com/docs/devbox/installing_devbox/?install-method=wsl).
+
+Start the Devbox environment (in WSL shell for Windows):
+
+```
+devbox shell
+```
 
 Then start the project:
 
