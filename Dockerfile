@@ -16,9 +16,6 @@ ENV DENO_DIR=/var/deno_dir
 WORKDIR "/var/task"
 COPY . /var/task
 
-RUN deno cache main.ts
-
-# Warmup caches
-# RUN timeout 10s deno run -A main.ts || [ $? -eq 124 ] || exit 1
+RUN deno task build
 
 CMD ["deno", "run", "-A", "main.ts"]
