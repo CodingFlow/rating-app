@@ -2,9 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
   "packages": [
     "deno@2",
-    "docker@27.3.1",
-    "liquibase@4.29.2",
-    "postgresql@16.4"
+    "docker@27.3.1"
   ],
   "shell": {
     "init_hook": [
