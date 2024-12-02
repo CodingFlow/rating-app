@@ -1,6 +1,6 @@
 # Introduction
 
-A full-stack TypeScript rating application using modern tools.
+The frontend of a full-stack TypeScript rating web application using modern tools.
 
 # Usage
 
