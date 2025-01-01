@@ -2,56 +2,56 @@
   "lockfile_version": "1",
   "packages": {
     "deno@2": {
-      "last_modified": "2024-11-16T04:25:12Z",
-      "resolved": "github:NixOS/nixpkgs/34a626458d686f1b58139620a8b2793e9e123bba#deno",
+      "last_modified": "2024-12-27T03:08:00Z",
+      "resolved": "github:NixOS/nixpkgs/7cc0bff31a3a705d3ac4fdceb030a17239412210#deno",
       "source": "devbox-search",
-      "version": "2.0.6",
+      "version": "2.1.4",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6n6y9z422k9a0hzq18j1lzr3nm5qq42k-deno-2.0.6",
+              "path": "/nix/store/9iq61f344d3790wjs6xzpd4phx71rh75-deno-2.1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6n6y9z422k9a0hzq18j1lzr3nm5qq42k-deno-2.0.6"
+          "store_path": "/nix/store/9iq61f344d3790wjs6xzpd4phx71rh75-deno-2.1.4"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8j2r58igcynz38grfyp6q6if3r4bh6p5-deno-2.0.6",
+              "path": "/nix/store/f2i5gmgnmpcfpk05lr4biwwvs09zvdm4-deno-2.1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8j2r58igcynz38grfyp6q6if3r4bh6p5-deno-2.0.6"
+          "store_path": "/nix/store/f2i5gmgnmpcfpk05lr4biwwvs09zvdm4-deno-2.1.4"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gavar9qq7yn6yl77b53ci6zj54al4wan-deno-2.0.6",
+              "path": "/nix/store/lkypn69vhzzsbmb40ha3janbzljyz3v1-deno-2.1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/gavar9qq7yn6yl77b53ci6zj54al4wan-deno-2.0.6"
+          "store_path": "/nix/store/lkypn69vhzzsbmb40ha3janbzljyz3v1-deno-2.1.4"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/96j40h3bygf3633yvqn6pl163lfv1064-deno-2.0.6",
+              "path": "/nix/store/h5vk6cynslr4xslfg9fl105l0wpzs496-deno-2.1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/96j40h3bygf3633yvqn6pl163lfv1064-deno-2.0.6"
+          "store_path": "/nix/store/h5vk6cynslr4xslfg9fl105l0wpzs496-deno-2.1.4"
         }
       }
     },
     "docker@27.3.1": {
-      "last_modified": "2024-11-16T04:25:12Z",
-      "resolved": "github:NixOS/nixpkgs/34a626458d686f1b58139620a8b2793e9e123bba#docker",
+      "last_modified": "2024-12-17T11:43:56Z",
+      "resolved": "github:NixOS/nixpkgs/4989a246d7a390a859852baddb1013f825435cee#docker",
       "source": "devbox-search",
       "version": "27.3.1",
       "systems": {
@@ -59,41 +59,41 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/v69vm56w9v74ncyz5lccvmb8cvpsmq6p-docker-27.3.1",
+              "path": "/nix/store/03vbya3x94lygm1242d7kqx63ia2qm4v-docker-27.3.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/v69vm56w9v74ncyz5lccvmb8cvpsmq6p-docker-27.3.1"
+          "store_path": "/nix/store/03vbya3x94lygm1242d7kqx63ia2qm4v-docker-27.3.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zhr2pv6124qvwn53fzy8048y002k982l-docker-27.3.1",
+              "path": "/nix/store/k8w5v5gn0h9h9w35996g19kz1f5hx8s2-docker-27.3.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zhr2pv6124qvwn53fzy8048y002k982l-docker-27.3.1"
+          "store_path": "/nix/store/k8w5v5gn0h9h9w35996g19kz1f5hx8s2-docker-27.3.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gw7f9j1qabxasvhr5vr10a3knlpjhbam-docker-27.3.1",
+              "path": "/nix/store/fn3prnmm4nnpw03z4lqilhqj9grdxvm7-docker-27.3.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/gw7f9j1qabxasvhr5vr10a3knlpjhbam-docker-27.3.1"
+          "store_path": "/nix/store/fn3prnmm4nnpw03z4lqilhqj9grdxvm7-docker-27.3.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/j4y5rj5qhk4qlya02vrxf3rj6402xrr9-docker-27.3.1",
+              "path": "/nix/store/cx0838x27xfdszixcq8ffcsz1l2q2h43-docker-27.3.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/j4y5rj5qhk4qlya02vrxf3rj6402xrr9-docker-27.3.1"
+          "store_path": "/nix/store/cx0838x27xfdszixcq8ffcsz1l2q2h43-docker-27.3.1"
         }
       }
     }
