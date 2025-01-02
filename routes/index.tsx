@@ -3,13 +3,13 @@ import Form from "../islands/Form.tsx";
 import { ratingServiceUrl } from "../islands/environment-variables.tsx";
 
 type User = {
-    id: string;
+    id: number;
     username: string;
 };
 
 export default function Home() {
     const users = useSignal<User[]>([]);
-    const user = useSignal<User>({ id: "", username: "" });
+    const user = useSignal<User>({ id: 0, username: "" });
 
     return (
         <div class="px-4 py-8 mx-auto bg-amber-200">
