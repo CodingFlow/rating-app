@@ -1,6 +1,25 @@
 # Introduction
 
-The frontend of a full-stack TypeScript rating web application using modern tools.
+The frontend for a prototype full-stack C#, Preact web application deployed on
+Azure AKS using modern tools. This project primarily focuses on architectural
+design, implementation, and tools that can be leveraged for enterprise-grade
+applications.
+
+The backend and infrastructure repository lives here:
+https://github.com/CodingFlow/rating-service-dotnet
+
+Tools and frameworks used by frontend:
+
+- [Deno](https://deno.com/) - Successor to Node.js with built-in support for
+  TypeScript.
+- [Fresh](https://fresh.deno.dev/) - Web framework built for Deno using Preact
+  and built-in support for server-side rendering.
+- [Preact](https://preactjs.com/) - lightweight, high-performance alternative to
+  React.
+- [Devbox](https://www.jetify.com/devbox) - Ergonomic tool over
+  [Nix](https://nixos.org/) to enable easily creating portable, isolated
+  development environments.
+- [Docker](https://www.docker.com/) - Container tool chain.
 
 # Usage
 
