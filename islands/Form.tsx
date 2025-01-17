@@ -1,5 +1,5 @@
 import { Signal } from "@preact/signals";
-import { useEffect } from "@preact/hooks";
+import { useEffect } from "preact/hooks";
 
 interface UsersProps<T> {
     ratingServiceUrl: string;
