@@ -54,7 +54,11 @@ async function onCreate<T>(
 ) {
     const response = await (await fetch(ratingServiceUrl, {
         method: "post",
-        body: JSON.stringify([item.value]),
+        body: JSON.stringify({
+            items: [
+                item.value
+            ]
+        }),
     })).json();
 
     getData(items, ratingServiceUrl);
