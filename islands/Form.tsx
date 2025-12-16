@@ -23,7 +23,7 @@ async function getData<T>(
         headers: new Headers([["Content-Type", "application/json"]]),
     })).json();
 
-    items.value = response;
+    items.value = response.items;
 }
 
 function onSelectItem<T extends Record<string, any>>(
