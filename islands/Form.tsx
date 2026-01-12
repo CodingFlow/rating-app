@@ -1,10 +1,11 @@
 import { Signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-interface UsersProps<T> {
+interface UsersProps<TResponse, TItem> {
     ratingServiceUrl: string;
-    entity: Signal<T>;
-    entities: Signal<T[]>;
+    mapData: MapData<TResponse, TItem>;
+    entity: Signal<TItem>;
+    entities: Signal<TItem[]>;
     fields: Field[];
     entityIdFieldName: string;
 }
@@ -15,15 +16,20 @@ export type Field = {
     inputText: string;
 };
 
-async function getData<T>(
-    items: Signal<T[]>,
+export type MapData<TResponse, TItem> = (data: TResponse) => TItem[];
+
+async function getData<TResponse, TItem>(
+    items: Signal<TItem[]>,
+    mapData: MapData<TResponse, TItem>,
     ratingServiceUrl: string,
 ) {
-    const response: T[] = await (await fetch(ratingServiceUrl, {
+    const response = await fetch(ratingServiceUrl, {
         headers: new Headers([["Content-Type", "application/json"]]),
-    })).json();
+    });
 
-    items.value = response.items;
+    const data = await response.json() as TResponse;
+
+    items.value = mapData(data);
 }
 
 function onSelectItem<T extends Record<string, any>>(
@@ -47,51 +53,52 @@ function onFieldInput<T>(
     user.value = { ...user.value, [field]: newName };
 }
 
-async function onCreate<T>(
-    item: Signal<T>,
-    items: Signal<T[]>,
+async function onCreate<TResponse, TItem>(
+    item: Signal<TItem>,
+    items: Signal<TItem[]>,
+    mapData: MapData<TResponse, TItem>,
     ratingServiceUrl: string,
 ) {
-    const response = await (await fetch(ratingServiceUrl, {
+    const response = await fetch(ratingServiceUrl, {
         method: "post",
         body: JSON.stringify({
             items: [
-                item.value
-            ]
+                item.value,
+            ],
         }),
-    })).json();
+    });
 
-    getData(items, ratingServiceUrl);
+    const data = await (response).json();
+
+    getData(items, mapData, ratingServiceUrl);
 }
 
-export default function Form<T extends Record<string, any>>(
+export default function Form<TResponse, TItem extends Record<string, any>>(
     {
         ratingServiceUrl,
+        mapData,
         fields,
         entity,
         entities,
         entityIdFieldName,
-    }: UsersProps<T>,
+    }: UsersProps<TResponse, TItem>,
 ) {
     useEffect(() => {
-        getData(entities, ratingServiceUrl);
+        getData(entities, mapData, ratingServiceUrl);
     }, []);
 
     return (
         <div class="flex flex-col gap-2">
-            <select size={10} value={entity.value[entityIdFieldName]}>
-                {entities.value.map((item) => (
-                    <option
-                        value={item.id}
-                        onInput={() =>
-                            onSelectItem<T>(
+            <select size={10} value={entity.value[entityIdFieldName]} onInput={(event) =>
+                            onSelectItem<TItem>(
                                 entities,
                                 entity,
                                 entityIdFieldName,
-                                item.id,
-                            )}
-                    >
-                        {item.username}
+                                event.currentTarget.value,
+                            )}>
+                {entities.value.map((item) => (
+                    <option value={item[entityIdFieldName]}>
+                        {item[entityIdFieldName]}
                     </option>
                 ))}
             </select>
@@ -113,7 +120,7 @@ export default function Form<T extends Record<string, any>>(
                 </>
             ))}
             <button
-                onClick={() => onCreate(entity, entities, ratingServiceUrl)}
+                onClick={() => onCreate(entity, entities, mapData, ratingServiceUrl)}
                 class="p-1 border bg-orange-100 shadow-md rounded-md"
             >
                 Create

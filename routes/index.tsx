@@ -1,31 +1,28 @@
 import { useSignal } from "@preact/signals";
-import Form from "../islands/Form.tsx";
 import { ratingServiceUrl } from "../islands/environment-variables.tsx";
-
-type User = {
-    id: number;
-    username: string;
-};
+import RatingsForm from "../islands/RatingsForm.tsx";
+import { Rating } from "../shared/Ratings.ts";
 
 export default function Home() {
-    const users = useSignal<User[]>([]);
-    const user = useSignal<User>({ id: 0, username: "" });
+    const ratings = useSignal<Rating[]>([]);
+    const rating = useSignal<Rating>({
+        id: "00000000-0000-0000-0000-000000000000",
+        userId: "00000000-0000-0000-0000-000000000000",
+        serviceId: "00000000-0000-0000-0000-000000000000",
+        score: 0
+    });
 
     return (
         <div class="px-4 py-8 mx-auto bg-amber-200">
             <div class="w-full columns-2">
                 <div class="">
-                    <h2>Users</h2>
-                    <Form
-                        ratingServiceUrl={`${ratingServiceUrl}/users`}
-                        entities={users}
-                        entity={user}
-                        entityIdFieldName="id"
-                        fields={[{
-                            fieldName: "username",
-                            inputId: "username",
-                            inputText: "Username",
-                        }]}
+                    <div>
+                        <h2>Ratings</h2>
+                    </div>
+                    <RatingsForm
+                        ratingServiceUrl={`${ratingServiceUrl}`}
+                        ratings={ratings}
+                        rating={rating}
                     />
                 </div>
             </div>

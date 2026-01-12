@@ -1,4 +1,4 @@
-import { type PageProps } from "$fresh/server.ts";
+import { type PageProps } from "fresh";
 export default function App({ Component }: PageProps) {
     return (
         <html>
@@ -9,7 +9,6 @@ export default function App({ Component }: PageProps) {
                     content="width=device-width, initial-scale=1.0"
                 />
                 <title>Rating App</title>
-                <link rel="stylesheet" href="/styles.css" />
             </head>
             <body>
                 <Component />
