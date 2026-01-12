@@ -1,5 +1,5 @@
 import { Signal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
+import { getData } from "../shared/Common.ts";
 
 interface UsersProps<TResponse, TItem> {
     ratingServiceUrl: string;
@@ -17,20 +17,6 @@ export type Field = {
 };
 
 export type MapData<TResponse, TItem> = (data: TResponse) => TItem[];
-
-async function getData<TResponse, TItem>(
-    items: Signal<TItem[]>,
-    mapData: MapData<TResponse, TItem>,
-    ratingServiceUrl: string,
-) {
-    const response = await fetch(ratingServiceUrl, {
-        headers: new Headers([["Content-Type", "application/json"]]),
-    });
-
-    const data = await response.json() as TResponse;
-
-    items.value = mapData(data);
-}
 
 function onSelectItem<T extends Record<string, any>>(
     entities: Signal<T[]>,
@@ -83,10 +69,6 @@ export default function Form<TResponse, TItem extends Record<string, any>>(
         entityIdFieldName,
     }: UsersProps<TResponse, TItem>,
 ) {
-    useEffect(() => {
-        getData(entities, mapData, ratingServiceUrl);
-    }, []);
-
     return (
         <div class="flex flex-col gap-2">
             <select size={10} value={entity.value[entityIdFieldName]} onInput={(event) =>

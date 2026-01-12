@@ -1,3 +1,5 @@
+import { MapData } from "./Common.ts";
+
 export type Uuid = string;
 
 export type Rating = {
@@ -14,5 +16,3 @@ export type RatingResponse = {
 export const mapRatingResponse: MapData<RatingResponse, Rating> = (data) => {
     return data.items;
 }
-
-export type MapData<TResponse, TItem> = (data: TResponse) => TItem[];

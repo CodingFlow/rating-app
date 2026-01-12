@@ -1,16 +1,19 @@
-import { useSignal } from "@preact/signals";
+import { signal } from "@preact/signals";
 import { ratingServiceUrl } from "../islands/environment-variables.tsx";
 import RatingsForm from "../islands/RatingsForm.tsx";
-import { Rating } from "../shared/Ratings.ts";
+import { mapRatingResponse, Rating } from "../shared/Ratings.ts";
+import { getData } from "../shared/Common.ts";
 
-export default function Home() {
-    const ratings = useSignal<Rating[]>([]);
-    const rating = useSignal<Rating>({
+export default async function Home() {
+    const ratings = signal<Rating[]>([]);
+    const rating = signal<Rating>({
         id: "00000000-0000-0000-0000-000000000000",
         userId: "00000000-0000-0000-0000-000000000000",
         serviceId: "00000000-0000-0000-0000-000000000000",
         score: 0
     });
+
+    await getData(ratings, mapRatingResponse, ratingServiceUrl);
 
     return (
         <div class="px-4 py-8 mx-auto bg-amber-200">
