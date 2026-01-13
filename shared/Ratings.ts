@@ -10,9 +10,9 @@ export type Rating = {
 };
 
 export type RatingResponse = {
-    items: Rating[]
-}
+    items: Rating[];
+};
 
 export const mapRatingResponse: MapData<RatingResponse, Rating> = (data) => {
     return data.items;
-}
+};

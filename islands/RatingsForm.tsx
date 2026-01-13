@@ -15,19 +15,21 @@ export default function RatingsForm(
         ratings,
     }: RatingsProps,
 ) {
-    return <>
-        <div>Score: {rating.value.score}</div>
-        <Form
-            ratingServiceUrl={`${ratingServiceUrl}`}
-            mapData={mapRatingResponse}
-            entities={ratings}
-            entity={rating}
-            entityIdFieldName="id"
-            fields={[{
-                fieldName: "ratingId",
-                inputId: "ratingId",
-                inputText: "Rating Id",
-            }]}
-        />
-    </>;
+    return (
+        <>
+            <div>Score: {rating.value.score}</div>
+            <Form
+                ratingServiceUrl={`${ratingServiceUrl}`}
+                mapData={mapRatingResponse}
+                entities={ratings}
+                entity={rating}
+                entityIdFieldName="id"
+                fields={[{
+                    fieldName: "ratingId",
+                    inputId: "ratingId",
+                    inputText: "Rating Id",
+                }]}
+            />
+        </>
+    );
 }

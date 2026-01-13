@@ -54,7 +54,7 @@ async function onCreate<TResponse, TItem>(
         }),
     });
 
-    const data = await (response).json();
+    const data = await response.json();
 
     getData(items, mapData, ratingServiceUrl);
 }
@@ -71,13 +71,17 @@ export default function Form<TResponse, TItem extends Record<string, any>>(
 ) {
     return (
         <div class="flex flex-col gap-2">
-            <select size={10} value={entity.value[entityIdFieldName]} onInput={(event) =>
-                            onSelectItem<TItem>(
-                                entities,
-                                entity,
-                                entityIdFieldName,
-                                event.currentTarget.value,
-                            )}>
+            <select
+                size={10}
+                value={entity.value[entityIdFieldName]}
+                onInput={(event) =>
+                    onSelectItem<TItem>(
+                        entities,
+                        entity,
+                        entityIdFieldName,
+                        event.currentTarget.value,
+                    )}
+            >
                 {entities.value.map((item) => (
                     <option value={item[entityIdFieldName]}>
                         {item[entityIdFieldName]}
@@ -102,7 +106,8 @@ export default function Form<TResponse, TItem extends Record<string, any>>(
                 </>
             ))}
             <button
-                onClick={() => onCreate(entity, entities, mapData, ratingServiceUrl)}
+                onClick={() =>
+                    onCreate(entity, entities, mapData, ratingServiceUrl)}
                 class="p-1 border bg-orange-100 shadow-md rounded-md"
             >
                 Create

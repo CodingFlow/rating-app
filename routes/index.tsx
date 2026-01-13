@@ -1,5 +1,8 @@
 import { signal } from "@preact/signals";
-import { ratingServiceUrl } from "../islands/environment-variables.tsx";
+import {
+    ratingServiceServerSideUrl,
+    ratingServiceUrl,
+} from "../shared/environment-variables.ts";
 import RatingsForm from "../islands/RatingsForm.tsx";
 import { mapRatingResponse, Rating } from "../shared/Ratings.ts";
 import { getData } from "../shared/Common.ts";
@@ -10,10 +13,10 @@ export default async function Home() {
         id: "00000000-0000-0000-0000-000000000000",
         userId: "00000000-0000-0000-0000-000000000000",
         serviceId: "00000000-0000-0000-0000-000000000000",
-        score: 0
+        score: 0,
     });
 
-    await getData(ratings, mapRatingResponse, ratingServiceUrl);
+    await getData(ratings, mapRatingResponse, ratingServiceServerSideUrl);
 
     return (
         <div class="px-4 py-8 mx-auto bg-amber-200">

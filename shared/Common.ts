@@ -8,7 +8,10 @@ export async function getData<TResponse, TItem>(
     serviceUrl: string,
 ) {
     const response = await fetch(serviceUrl, {
-        headers: new Headers([["Content-Type", "application/json"]]),
+        headers: new Headers([
+            ["Content-Type", "application/json"],
+            ["Host", "dogs"],
+        ]),
     });
 
     const data = await response.json() as TResponse;
